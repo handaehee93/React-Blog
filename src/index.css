@@ -31,6 +31,7 @@ body {
 }
 .navbar h1 {
   color: #25c871;
+  width: 1rem;
 }
 
 .navbar a {
