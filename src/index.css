@@ -20,7 +20,7 @@ body {
   /* 현재 메인축이 row 아래 코드는 반대축 기준, 얼라들은 반대많이 함 */
   align-items: center;
   max-width: 70%;
-  margin:auto;
+  margin: 0 auto;
   border-bottom: 1px solid #4a4545;
 }
 
@@ -31,16 +31,38 @@ body {
 }
 .navbar h1 {
   color: #25c871;
-  width: 1rem;
+
 }
 
 .navbar a {
+  background-color: #25c871;
   margin-left: 16px;
   text-decoration: none;
   padding: 6px;
-  color: black;
+  color: white;
+  border-radius: 0.5rem;
 }
 
 .navbar a:hover {
   color: #25c871;
+}
+
+.home {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  /* text-align: center; */
+}
+
+.todolist {
+  display: flex;
+  padding: 2rem;
+}
+.todolist:hover {
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  width: 100%;
+  margin-left: 1rem;
 }
