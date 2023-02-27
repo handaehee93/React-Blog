@@ -1,0 +1,16 @@
+{
+  "todos" : [
+    {
+      "id":"nextid++", 
+      "title": "리액트 공부하기"
+    },
+    {
+      "id":"nextid++", 
+      "title": "반응형 공부하기"
+    },
+    {
+      "id":"nextid++", 
+      "title": "git 공부하기"
+    }
+  ]
+}
