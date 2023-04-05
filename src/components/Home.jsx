@@ -5,7 +5,7 @@ import TodoList from './TodoList'
 // let nextid = 0
 export default function Home() {
   const [todos, setTodos] =useState(null)
-  
+  const [isLoading, setIsLoading] = useState(true)
 
   // 부모 요소에 존재 하는 상태 값이 자식 컴포넌트의 어떤 작용으로 인해 변화 하길 원한다면 함수를 props로 내려줘야 한다.
   // 왜냐면 상태 값은 오직 'set상태값' 에 의해서만 변경이 가능하기 때문에, 상태 변경 함수를 props로 내려줘야 하기 때문이다.
@@ -25,18 +25,22 @@ export default function Home() {
   // 먼저 data폴더 안에 db.json을 만들고, json server를 설치한 다음 해당 서버가 db.json파일을 바라보게 하면 해당 파일이 하나의 서버가 된다. npx json-server --watch data/db.json --port 8000
   //그리고 이제 서버 주소로 fetch를 이용해서 get요청을 통해 데이터를 받아올텐데 이걸 useEffect안에서 빈 배열과 함께 사용하면 페이지가 마운팅 될때만 실행하게 되는 것이다.
   useEffect(() => {
-    fetch('http://localhost:8000/todos')
+    setTimeout(() => {
+      fetch('http://localhost:8000/todos')
       .then(res => {
         return res.json()
       })
       .then((data) => {
         setTodos(data)
+        setIsLoading(!isLoading)
       })
+    }, 2000 )
   },[])
 
 
   return (
     <div className='home'>
+      { isLoading && <div> Loading... </div>}
       {todos && <TodoList todos={todos} handleDelete={handleDelete}/>}
     </div>
   )
