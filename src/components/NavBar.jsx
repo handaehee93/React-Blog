@@ -1,13 +1,14 @@
 import React from 'react'
 import {BsPencilFill} from 'react-icons/bs'
+import { Link } from 'react-router-dom'
 export default function NavBar() {
   return (
     <nav className='navbar'>
-      <a href="/"><h1>To Do</h1></a>
+      <Link to="/"><h1>To Do</h1></Link>
       <BsPencilFill className='icon'/>
       <div className='links'> 
-        <a href="/">Home</a>
-        <a href="/create">Add To Do</a>
+        <Link to="/">Home</Link>
+        <Link to="/create">Add To Do</Link>
       </div>
     </nav>
   )
