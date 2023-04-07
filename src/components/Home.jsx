@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import TodoList from './TodoList'
 import useFetch from '../useFetch'
-
+import Create from './AddToDo'
+import styled from 'styled-components'
 
 // let nextid = 0
 export default function Home() {
@@ -9,16 +10,21 @@ export default function Home() {
   const {data: todos, isLoading, error} = useFetch('http://localhost:8000/todos')
 
   return (
-    <div className='home'>
+    <Container >
       { error && <div>{ error }</div>}
       { isLoading && <div> Loading... </div>}
       {todos && <TodoList todos={todos} />}
-    </div>
+      {/* {<Create />} */}
+    </Container>
   )
 }
 
   
-
+const Container = styled.div`
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+`
 
 
 

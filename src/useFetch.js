@@ -15,6 +15,7 @@ const useFetch = (url) => {
   // 먼저 data폴더 안에 db.json을 만들고, json server를 설치한 다음 해당 서버가 db.json파일을 바라보게 하면 해당 파일이 하나의 서버가 된다. npx json-server --watch data/db.json --port 8000
   //그리고 이제 서버 주소로 fetch를 이용해서 get요청을 통해 데이터를 받아올텐데 이걸 useEffect안에서 빈 배열과 함께 사용하면 페이지가 마운팅 될때만 실행하게 되는 것이다.
   useEffect(() => {
+
     setTimeout(() => {
       fetch(url)
       .then(res => {
@@ -33,6 +34,7 @@ const useFetch = (url) => {
         setError(err.message)
         console.log(error)
       })
+
     }, 1000 )
   },[url])
 return {data, isLoading, error}
