@@ -1,26 +1,57 @@
-import React from 'react'
+import React,{useState} from 'react'
+import styled from 'styled-components'
+import AddToDo from './AddToDo'
+import {v4 as uuidv4} from 'uuid'
+import Todo from './Todo'
 
-export default function TodoList({todos, handleDelete}) {
+export default function TodoList() {
 
+  const [todos, setTodos] = useState([])
 
+  const handleAdd = (newTodo) => {
+    setTodos([...todos, newTodo])
+  }
 
+  const handleUpdate = (updated) => {
+    
+    return setTodos(todos.map((t) => {
+      return t.id === updated.id ? updated : t
+    }))
+  }
+
+  const handleDelete = (deleted) => setTodos(todos.filter((t) => t.id !== deleted.id))
   return (
-    <div className='todo_list'>
-      {/* 배열을 받아서 뿌리는 {}안의 부분은 재사용 가능성이 충분하므로 항상 하나의 컴포넌트로 만들어 주는 것이 좋다.*/}
-      {
-        todos.map((todo) => (
-          <div key={todo.id} className='todolist'>
-            <input type='checkbox' />
-            <div className='content'>
-            {todo.title}
-            </div>
-            {/* 아래 처럼 props로 전달받은 함수에 인자로 어떤 값을 받아야 한다면 아래 처럼 입력을 해줘야 한다. 
-            onClick={handleDelte(todo.id)} 라고 입력하면 작동하지 않는다.*/}
-            <button onClick={() => (handleDelete(todo.id))}>Delete</button>
-          </div>
-          
-        ))
-      }
-    </div>
+    <Container >
+      <AddToDo handleAdd={handleAdd}/>
+      <ul>
+        {
+          todos.map((todo) => {
+            return <Todo key={todo.id} todo= {todo} onUpdate={handleUpdate} onDelete={handleDelete} />
+          })
+        }
+      </ul>
+    </Container>
   )
 }
+
+        
+        
+
+
+const Container = styled.div`
+/* background-color:blue; */
+  display:flex;
+  flex-direction:column;
+  /* justify-content:center; */
+  align-items:center;
+  gap:1rem;
+  width: 100&;
+  height: 100%;
+  /* margin-left:30rem; */
+  /* width:100vw; */
+  >ul {
+  display:flex;
+  flex-direction:column;
+  /* align-items:center; */
+  }
+`
