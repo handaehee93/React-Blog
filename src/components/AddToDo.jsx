@@ -14,8 +14,9 @@ export default function AddToDo ({handleAdd}) {
     if(text.trim().length === 0) {
       return 
     }
-    handleAdd({id:uuidv4(), text:text, status:'active'})
-    setText('') // => 버튼 으로 새로운 todolist를 추가 한다음 input에 기존에 입력했던 문자열을 초기화 해주는 것
+    handleAdd({id:uuidv4(), text:text, status:'ongoing'})
+     // 버튼 으로 새로운 todolist를 추가 한다음 input에 기존에 입력했던 문자열을 초기화 해주는 것
+    setText('')
   }
   
 
@@ -39,7 +40,7 @@ const Container = styled.form`
   margin-top: 1rem;
 
   width:100%;
-  height:100px;
+  /* height:100px; */
   /* border:1px solid; */
   display:flex;
   justify-content:center;

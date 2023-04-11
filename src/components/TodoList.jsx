@@ -6,10 +6,7 @@ import Todo from './Todo'
 
 export default function TodoList() {
 
-  const [todos, setTodos] = useState([
-    {id: uuidv4(), text: 'Html공부하기', status: 'active'},
-    {id: uuidv4(), text:'css공부하기', status:'active'}
-  ])
+  const [todos, setTodos] = useState([])
 
   const handleAdd = (newTodo) => {
     setTodos([...todos, newTodo])
@@ -45,10 +42,11 @@ const Container = styled.div`
 /* background-color:blue; */
   display:flex;
   flex-direction:column;
+  /* justify-content:center; */
   align-items:center;
   gap:1rem;
-  width: 100vw;
-  height: 100vh;
+  width: 100&;
+  height: 100%;
   /* margin-left:30rem; */
   /* width:100vw; */
   >ul {

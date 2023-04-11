@@ -6,7 +6,7 @@ export default function Todo ({todo, onUpdate, onDelete}) {
 
   const handleChange = (e) => {
     console.log(e)
-    return onUpdate({...todo, status: e.target.checked ? "completed" : 'active'})
+    return onUpdate({...todo, status: e.target.checked ? "completed" : 'ongoing'})
   }
   const handleDelete = () => onDelete(todo)
   return (

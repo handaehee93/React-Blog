@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {BsPencilFill} from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import AddToDo from './AddToDo'
+// import AddToDo from './AddToDo'
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -29,7 +29,7 @@ export default function NavBar() {
 
   return (
     <Container className='navbar'>
-      <Link to="/"><h1>To Do</h1></Link>
+      <Link to="/" className='title'><h1>To Do</h1></Link>
       <BsPencilFill className='icon'/>
     </Container>
   )
@@ -43,10 +43,19 @@ const Container = styled.nav`
   /* 현재 메인축이 row 아래 코드는 반대축 기준, 얼라들은 반대많이 함 */
   align-items: center;
   max-width: 100%;
-  margin: 0 auto;
-  border-bottom: 1px solid #4a4545;
+  background-color:#23272f;
+  /* margin: 0 auto; */
+  /* border-bottom: 1px solid #4a4545; */
+  > .title {
+    text-decoration:none;
+
+  }
+  > .title h1 {
+    color:#55b4d0;
+
+  }
   > .icon {
-    color: #25c871;
+    color: #55b4d0;
     /* color: black; */
     margin-left: 1rem;
   }

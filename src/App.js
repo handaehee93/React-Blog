@@ -1,40 +1,54 @@
 import NavBar from './components/NavBar';
 import Home from './components/Home';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import {BrowserRouter as Router, Routes,Route} from 'react-router-dom'
 import styled, {createGlobalStyle} from 'styled-components'
+import Sidebar from './components/Sidebar';
+import { Switch } from '@mui/material';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Root from './components/Root';
+import Completed from './components/Completed';
+import AddToDo from './components/AddToDo';
 
+const router = createBrowserRouter([
+  {
+    path: '/', // '/'는 메인 페이지를 의미한다.
+    element: <Root/>,
+    children: [
+      {index:true, element:<Home />},
+      {path: '/completed', element: <Completed />},
+      {path: '/add', element: <AddToDo />}
+    ]
+  },
+	{
+		path: '/videos',
+		element: <p>videos</p>
+  }
+]);
 
+const filters = ['all', 'active', 'completed']
 function App() {
   return (
-    <Router>
-      <div className="App">
+      <>
+      <GlobalStyle />
+        <RouterProvider router={router}/>
+      {/* <AppContainer >
         <GlobalStyle />
-          <NavBar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            {/* <Route path="/create" element={<Create />} /> */}
-          </Routes>
-      </div>
-    </Router>
+        <Router>
+          <NavBar />  
+          <Sidebar /> 
+          <Switch>
+            <Route path='/' element={<Home />}/>
+          </Switch>
+        </Router>
+      </AppContainer> */}
+      </>
+
   );
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
 export default App;
+
+
       
 
 
@@ -49,13 +63,28 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    height: 70vh;
-    width: 70vw;
+    height: 100vh;
+    width: 100vw;
     margin: 0 auto;
   }
 
 `
-const Below = styled.div`
-max-width:100vw;
-  display:flex;
+const AppContainer = styled.div`
+  width:100vw;
+  height:100vh;
 `
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      

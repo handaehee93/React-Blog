@@ -30,22 +30,22 @@ body {
   margin-left: auto;
   color: black;
 } */
-.navbar a {
+/* .navbar a {
   text-decoration: none;
 }
 .navbar a h1 {
   color: #25c871;
 
-}
+} */
 
-.navbar .links a {
+/* .navbar .links a {
   background-color: #25c871;
   margin-left: 16px;
   text-decoration: none;
   padding: 6px;
   color: white;
   border-radius: 0.5rem;
-}
+} */
 
 .navbar a:hover {
   /* color: #25c871; */
